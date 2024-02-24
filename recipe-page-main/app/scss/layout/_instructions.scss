@@ -1,6 +1,6 @@
 @use "../utils";
 
-.ingredients {
+.instructions {
   color: var(--wenge-brown);
   padding: 20px 0;
   background-color: var(--neutral-white);
@@ -15,17 +15,28 @@
   &__list {
     width: 90%;
     margin: 0 auto;
-    padding-bottom: 10px;
     h2 {
       font-family: utils.$font-young;
       color: var(--primary-nutmeg);
       font-size: 24px;
     }
-    ul {
+    ol {
       margin: 0;
       padding: 0 20px;
       li {
         padding-bottom: 10px;
+        counter-increment: list;
+        list-style-type: none;
+        position: relative;
+        &::before {
+          color: var(--primary-nutmeg);
+          content: counter(list) ".";
+          left: -32px;
+          position: absolute;
+          text-align: right;
+          width: 26px;
+          font-size: 18px;
+        }
       }
     }
   }

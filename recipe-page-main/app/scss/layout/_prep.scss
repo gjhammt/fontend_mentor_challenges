@@ -2,6 +2,15 @@
   width: 100%;
   padding: 0 0 25px 0;
   color: var(--wenge-brown);
+  background-color: var(--neutral-white);
+  @media only screen and (min-width: 700px) {
+    width: 60%;
+    margin: 0 auto;
+  }
+  @media only screen and (min-width: 900px) {
+    width: 40%;
+    margin:0 auto;
+  }
 
   &__time {
     width: 90%;

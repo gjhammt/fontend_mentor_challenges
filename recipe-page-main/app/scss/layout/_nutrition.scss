@@ -1,0 +1,44 @@
+@use "../utils";
+
+.nutrition {
+  color: var(--wenge-brown);
+  padding: 20px 0;
+  background-color: var(--neutral-white);
+  @media only screen and (min-width: 700px) {
+    width: 60%;
+    margin: 0 auto 40px auto;
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+  }
+  @media only screen and (min-width: 900px) {
+    width: 40%;
+    margin: 0 auto;
+  }
+  .nutrition__table {
+    width: 90%;
+    margin: 0 auto;
+    h2 {
+      font-family: utils.$font-young;
+      color: var(--primary-nutmeg);
+      font-size: 24px;
+    }
+    table {
+      width: 100%;
+      border-bottom: 0.5px solid black;
+      border-collapse: collapse;
+      tr td:nth-child(1) {
+        // color: var(--primary-nutmeg);
+        font-weight: 600;
+      }
+      tr td:nth-child(2) {
+        color: var(--primary-nutmeg);
+        font-weight: 900;
+      }
+      td {
+        border-bottom: 1px solid var(--wenge-brown);
+        border-collapse: collapse;
+        padding: 20px;
+      }
+    }
+  }
+}
