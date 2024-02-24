@@ -1,1 +1,144 @@
-html{box-sizing:border-box;font-size:100%}*,*::before,*::after{box-sizing:inherit}body{margin:0;padding:0;font-family:"Outfit",serif;background-color:var(--background-color);color:var(--text-color);font-weight:normal}h1,h2,h3{font-weight:700;line-height:1.1;margin-top:0}p{margin-top:0}a,a:visited,a:active{text-decoration:none}@font-face{font-family:"Outfit";font-style:normal;font-weight:400;src:local(""),url("/assets/fonts/outfit/Outfit-VariableFont_wght.ttf") format("woff2"),url("/assets/fonts/outfit/Outfit-VariableFont_wght.ttf") format("woff")}@font-face{font-family:"Outfit";font-style:normal;font-weight:600;src:local(""),url("/assets/fonts/outfit/Outfit-VariableFont_wght.ttf") format("woff2"),url("/assets/fonts/outfit/Outfit-VariableFont_wght.ttf") format("woff")}@font-face{font-family:"Outfit";font-style:normal;font-weight:700;src:local(""),url("/assets/fonts/outfit/Outfit-VariableFont_wght.ttf") format("woff2"),url("/assets/fonts/outfit/Outfit-VariableFont_wght.ttf") format("woff")}@font-face{font-family:"Young Serif";font-style:normal;font-weight:400;src:local(""),url("/assets/fonts/young-serif/YoungSerif-Regular.ttf") format("woff2"),url("/assets/fonts/young-serif/YoungSerif-Regular.ttf") format("woff")}:root{--background-color: hsl(30, 10%, 34%);--text-color: hsl(0, 0%, 100%);--primary-nutmeg: hsl(14, 45%, 36%);--primary-dark-raspberry: hsl(332, 51%, 32%) --neutral-white: hsl(0, 0%, 100%);--rose-white: hsl(330, 100%, 98%) --eggshell: hsl(30, 54%, 90%);--light-grey: hsl(30, 18%, 87%);--wenge-brown: hsl(30, 10%, 34%);--dark-charcoal: hsl(24, 5%, 18%)}/*# sourceMappingURL=style.css.map */
+@font-face {
+  font-family: "Outfit";
+  font-style: normal;
+  font-weight: 400;
+  src: local(""), url("/assets/fonts/outfit/Outfit-VariableFont_wght.ttf") format("woff2"), url("/assets/fonts/outfit/Outfit-VariableFont_wght.ttf") format("woff"); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+}
+@font-face {
+  font-family: "Outfit";
+  font-style: normal;
+  font-weight: 600;
+  src: local(""), url("/assets/fonts/outfit/Outfit-VariableFont_wght.ttf") format("woff2"), url("/assets/fonts/outfit/Outfit-VariableFont_wght.ttf") format("woff"); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+}
+@font-face {
+  font-family: "Outfit";
+  font-style: normal;
+  font-weight: 700;
+  src: local(""), url("/assets/fonts/outfit/Outfit-VariableFont_wght.ttf") format("woff2"), url("/assets/fonts/outfit/Outfit-VariableFont_wght.ttf") format("woff"); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+}
+@font-face {
+  font-family: "Young Serif";
+  font-style: normal;
+  font-weight: 400;
+  src: local(""), url("/assets/fonts/young-serif/YoungSerif-Regular.ttf") format("woff2"), url("/assets/fonts/young-serif/YoungSerif-Regular.ttf") format("woff"); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+}
+html {
+  box-sizing: border-box;
+  font-size: 100%;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: "Outfit", serif;
+  font-weight: normal;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  font-weight: 700;
+  line-height: 1.1;
+  margin-top: 0;
+}
+
+p {
+  margin-top: 0;
+}
+
+a,
+a:visited,
+a:active {
+  text-decoration: none;
+}
+
+:root {
+  --background-color: hsl(30, 10%, 34%);
+  --text-color: hsl(0, 0%, 100%);
+  --primary-nutmeg: hsl(14, 45%, 36%);
+  --primary-dark-raspberry: hsl(332, 51%, 32%);
+  --neutral-white: hsl(0, 0%, 100%);
+  --rose-white: hsl(330, 100%, 98%);
+  --eggshell: hsl(30, 54%, 90%);
+  --light-grey: hsl(30, 18%, 87%);
+  --wenge-brown: hsl(30, 10%, 34%);
+  --dark-charcoal: hsl(24, 5%, 18%);
+}
+
+.recipe {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  padding: 0;
+  background-color: var(--neutral-white);
+}
+.recipe__header {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  width: 100%;
+  padding: 0 auto;
+}
+.recipe__header h1 {
+  font-size: 38px;
+  font-family: "Young Serif", serif;
+  color: #000000;
+  font-weight: normal;
+  padding: 20px 25px 0 25px;
+}
+.recipe__header p {
+  color: var(--wenge-brown);
+  padding: 0 25px 20px 25px;
+  font-size: 16px;
+}
+
+.prep {
+  width: 100%;
+  padding: 0 0 25px 0;
+  color: var(--wenge-brown);
+}
+.prep__time {
+  width: 90%;
+  margin: 0 auto;
+  padding: 20px;
+  border-radius: 5px;
+  background-color: var(--rose-white);
+}
+.prep__time h4 {
+  color: var(--primary-dark-raspberry);
+  font-size: 20px;
+}
+.prep__time ul {
+  padding: 0 0px 0 20px;
+}
+.prep__time li {
+  padding-bottom: 10px;
+}
+
+.ingredients {
+  color: var(--wenge-brown);
+}
+.ingredients__list {
+  width: 90%;
+  margin: 0 auto;
+}
+.ingredients__list h2 {
+  font-family: "Young Serif", serif;
+  color: var(--primary-nutmeg);
+  font-size: 24px;
+}
+.ingredients__list ul {
+  margin: 0;
+  padding: 0 20px;
+}
+.ingredients__list ul li {
+  padding-bottom: 10px;
+}/*# sourceMappingURL=style.css.map */

@@ -1,6 +1,7 @@
 h1,
 h2,
-h3 {
+h3,
+h4 {
   font-weight: 700;
   line-height: 1.1;
   margin-top: 0;
@@ -14,41 +15,4 @@ a,
 a:visited,
 a:active {
   text-decoration: none;
-}
-
-@font-face {
-  font-family: "Outfit";
-  font-style: normal;
-  font-weight: 400;
-  src: local(""),
-    url("/assets/fonts/outfit/Outfit-VariableFont_wght.ttf") format("woff2"),
-    /* Chrome 26+, Opera 23+, Firefox 39+ */
-      url("/assets/fonts/outfit/Outfit-VariableFont_wght.ttf") format("woff"); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
-}
-@font-face {
-  font-family: "Outfit";
-  font-style: normal;
-  font-weight: 600;
-  src: local(""),
-    url("/assets/fonts/outfit/Outfit-VariableFont_wght.ttf") format("woff2"),
-    /* Chrome 26+, Opera 23+, Firefox 39+ */
-      url("/assets/fonts/outfit/Outfit-VariableFont_wght.ttf") format("woff"); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
-}
-@font-face {
-  font-family: "Outfit";
-  font-style: normal;
-  font-weight: 700;
-  src: local(""),
-    url("/assets/fonts/outfit/Outfit-VariableFont_wght.ttf") format("woff2"),
-    /* Chrome 26+, Opera 23+, Firefox 39+ */
-      url("/assets/fonts/outfit/Outfit-VariableFont_wght.ttf") format("woff"); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
-}
-@font-face {
-  font-family: "Young Serif";
-  font-style: normal;
-  font-weight: 400;
-  src: local(""),
-    url("/assets/fonts/young-serif/YoungSerif-Regular.ttf") format("woff2"),
-    /* Chrome 26+, Opera 23+, Firefox 39+ */
-      url("/assets/fonts/young-serif/YoungSerif-Regular.ttf") format("woff"); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
 }

@@ -1,0 +1,24 @@
+.prep {
+  width: 100%;
+  padding: 0 0 25px 0;
+  color: var(--wenge-brown);
+
+  &__time {
+    width: 90%;
+    margin: 0 auto;
+    padding: 20px;
+    border-radius: 5px;
+    background-color: var(--rose-white);
+    h4 {
+      color: var(--primary-dark-raspberry);
+      font-size: 20px;
+    }
+
+    ul {
+      padding: 0 0px 0 20px;
+    }
+    li {
+      padding-bottom: 10px;
+    }
+  }
+}

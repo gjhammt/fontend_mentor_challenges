@@ -1,0 +1,21 @@
+@use "../utils";
+
+.ingredients {
+    color: var(--wenge-brown);
+  &__list {
+    width: 90%;
+    margin: 0 auto;
+    h2 {
+      font-family: utils.$font-young;
+      color: var(--primary-nutmeg);
+      font-size: 24px;
+    }
+    ul {
+      margin: 0;
+      padding: 0 20px;
+      li {
+        padding-bottom: 10px;
+      }
+    }
+  }
+}

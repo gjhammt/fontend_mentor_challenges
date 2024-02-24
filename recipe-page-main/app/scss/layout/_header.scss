@@ -1,0 +1,34 @@
+@use "../utils";
+.recipe {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  //   border: 1px solid red;
+  padding: 0;
+  background-color: var(--neutral-white);
+  &__header {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    width: 100%;
+    padding: 0 auto;
+    img {
+    }
+
+    h1 {
+      font-size: 38px;
+      font-family: utils.$font-young;
+      color: #000000;
+      font-weight: normal;
+      padding: 20px 25px 0 25px;
+    }
+
+    p {
+      color: var(--wenge-brown);
+      padding: 0 25px 20px 25px;
+      font-size: 16px;
+    }
+  }
+}
+
