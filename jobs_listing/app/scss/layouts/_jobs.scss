@@ -1,6 +1,6 @@
 .jobs {
   width: 100%;
-  position: relative;
+
   //   background-color: var(--light-background);
   &__list {
     display: flex;
@@ -8,28 +8,88 @@
     margin-top: 3.438rem;
     .jobs__single {
       width: 90%;
+      min-height: 18.625rem;
       margin: 0 auto;
       background-color: #ffffff;
       border-radius: 5px;
+      position: relative;
+
       .jobs__img {
         position: absolute;
         top: -2.813rem;
-        left: 2.813rem;
+        left: 1.25rem;
       }
 
       .jobs__details {
-        position: absolute;
-        top: 3.875rem;
-        .jobs--inline {
-          display: inline;
+        position: relative;
+        top: 3.5rem;
+        left: 1.2rem;
+        flex-direction: column;
+        flex-wrap: wrap;
+        // border-bottom: 1px solid #000;
+        & > * {
+          margin-bottom: 1.25rem;
+        }
+        // width: 100%;
+        // flex-wrap: wrap;
+        .jobs__title {
+          & > * {
+            margin-right: 1.25rem;
+          }
+          .jobs--inline {
+            // display: inline-block;
+            margin-bottom: 0;
+            color: var(--desaturated-dark-cyan);
+            // margin-bottom: 1rem;
+          }
+          .jobs--tablet {
+            background-color: var(--desaturated-dark-cyan);
+            color: #ffffff;
+            padding: 0.5rem 1rem;
+            border-radius: 5000px;
+            // margin-right: 1rem;
+          }
+          .jobs--tablet:nth-child(3) {
+            background-color: var(--very-dark-grayish-cyan);
+          }
+          .jobs__title {
+            padding-top: 2rem;
+          }
+        }
+
+        .jobs__status {
+          color: var(--dark-grayish-cyan);
+          margin-right: 0.5rem;
+          span::after {
+            content: ".";
+            position: relative;
+            top: -3px;
+            left: 0;
+            bottom: 0;
+            right: 0;
+          }
         }
       }
 
       .jobs__filter {
-        position: absolute;
-        bottom: 0;
-        left: 0;
+        // position: absolute;
+        // bottom: 1rem;
+        // left: 1.25rem;
+        display: flex;
+        flex-wrap: wrap;
+        flex: 1 1 auto;
+        font-weight: 700;
+        a {
+          padding: 0.5rem;
+          background-color: var(--light-tablet);
+          color: var(--desaturated-dark-cyan);
+          margin: 0 1rem 1rem 0;
+          border-radius: 5px;
+        }
       }
+    }
+    .featured--job {
+      border-left: 5px solid var(--desaturated-dark-cyan);
     }
   }
 }
