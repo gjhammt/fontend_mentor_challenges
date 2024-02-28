@@ -1,92 +1,58 @@
-// console.log("Hello World");
-// import data from "../../data.json" assert { type: "json" };
-// console.log(data);
 const jobsContainer = document.querySelector(".jobs__list");
+const searchContainer = document.querySelector(".header__filter");
+const search = document.querySelector(".header__tech");
+const clearSelection = document.getElementById("clear");
 
 const fetchData = async () => {
   const res = await fetch("../../data.json");
   const data = await res.json();
-  //   console.log(data);
   return data;
 };
 
-// fetchData();
 
-const makeCards = (
-  companyName,
-  companyLogo,
-  isNew,
-  isFeatured,
-  position,
-  role,
-  level,
-  postedAt,
-  contract,
-  location,
-  languages,
-  tools
-) => {
-  return `<div class="jobs__single flex ${cardBorder(isFeatured)}">
+const makeCards = (job) => {
+  return `<div class="jobs__single flex ${cardBorder(job.featured)}">
           <div class="jobs__details flex">
             <div class="jobs__img">
-              <img src=${companyLogo} alt="" />
+              <img src=${job.logo} alt="" />
             </div>
             <div class="jobs__description ">
               <div class="jobs__company flex flex-ai-c">
-                <h3 class="jobs__company--name">${companyName}</h3>
-                ${createNewFlags(isNew, isFeatured)}
+                <h3 class="jobs__company--name">${job.company}</h3>
+                ${createNewFlags(job.new, job.featured)}
               </div>
-              <h2 class="jobs__title">${position}</h2>
+              <h2 class="jobs__title">${job.position}</h2>
               <ul class="flex flex-ai-c">
-                <li>${postedAt}</li>
-                <li>${contract}</li>
-                <li>${location}</li>
+                <li>${job.postedAt}</li>
+                <li>${job.contract}</li>
+                <li>${job.location}</li>
               </ul>
             </div>
           </div>
           <div class="jobs__tech">
-            <span class="role filter">${role}</span>
-            <span class="level filter">${level}</span>
-            ${createLang(languages)}
-            ${createTools(tools)}
+            <span class="role filter">${job.role}</span>
+            <span class="level filter">${job.level}</span>
+            ${createLang(job.languages)}
+            ${createTools(job.tools)}
           </div>
         </div>`;
 };
 
 const displayJobs = (data) => {
   const singleJob = data.map((job) => {
-    const companyName = job.company;
-    const companyLogo = job.logo;
-    const isNew = job.new;
-    const isFeatured = job.featured;
-    const position = job.position;
-    const role = job.role;
-    const level = job.level;
-    const postedAt = job.postedAt;
-    const contract = job.contract;
-    const location = job.location;
-    const languages = job.languages;
-    const tools = job.tools;
-
-    //   if(isFeatured === false){
-
-    //   }
-    //   const isFeatured = job.featured;
-    //   console.log(img);
-    let jobs = makeCards(
-      companyName,
-      companyLogo,
-      isNew,
-      isFeatured,
-      position,
-      role,
-      level,
-      postedAt,
-      contract,
-      location,
-      languages,
-      tools
-    );
+    // const companyName = job.company;
+    // const companyLogo = job.logo;
+    // const isNew = job.new;
+    // const isFeatured = job.featured;
+    // const position = job.position;
+    // const role = job.role;
+    // const level = job.level;
+    // const postedAt = job.postedAt;
+    // const contract = job.contract;
+    // const location = job.location;
+    // const languages = job.languages;
+    // const tools = job.tools;
+    let jobs = makeCards(job);
     return jobs;
   });
 
@@ -99,7 +65,6 @@ const createNewFlags = (newFlag, featuredFlag) => {
   if (featuredFlag) {
     flag += `<span class="jobs__company--featured">Featured</span>`;
   }
-  //   console.log(flag);
   return flag;
 };
 
@@ -122,6 +87,7 @@ const cardBorder = (featured) => {
 
 const createLang = (langs) => {
   let langCards = "";
+  // console.log(langs)
   langs.forEach((lang) => {
     langCards += `<span class="job__tech filter">${lang}</span>`;
   });
@@ -137,56 +103,51 @@ const createTools = (tools) => {
   return toolCards;
 };
 
-let filterArray = [];
-
-// Display filter on Search
-// const displayFilter = (ele) => {
-//   let filter = "";
-//   if (!filterArray.includes(ele.textContent)) {
-//     filterArray.push(ele.textContent);
-//   }
-
-//   filterArray.forEach((element) => {
-//     filter += `
-//         <div class="search-filter">
-//         <span class="filter-content">${element}
-//         <span class="filter-remove"> &#9747;</span>
-//         </span>
-//         </div>
-//         `;
-//     domElements.searchFilters.innerHTML = filter;
-//     filterJob();
-//   });
-// };
 const displaySearch = (e) => {
   let element = e.target;
   if (element.classList.contains("filter")) {
-    // domElements.searchContainer.classList.remove("hidden");
-    filterJob();
-  }
-};
-// Update jobs list by changing filters
-const filterJob = (data) => {
-  console.log(data)
-  if (filterArray.length !== 0) {
-    let cards = "";
-    fetchData().then((data) => {
-      data.forEach((text) => {
-        if (validJobs(text)) {
-          cards += makeCards(text);
-          console.log(text);
-          jobsContainer.innerHTML = cards;
-        }
-      });
-    });
-  } else {
-    // domElements.searchContainer.classList.add("hidden");
-    console.log(data);
-    makeCards(data);
+    searchContainer.classList.remove("hidden");
+    displayFilter(element);
   }
 };
 
-// Jobs are valid or not
+let filterArray = [];
+
+
+const displayFilter = (ele) => {
+  let filter = "";
+  if (!filterArray.includes(ele.textContent)) {
+    filterArray.push(ele.textContent);
+  }
+
+  filterArray.forEach((element) => {
+    filter += `<div class="header__search flex flex-ai-c"><span>${element}</span>
+            <span class="remove">X</span></div>`;
+  });
+  search.innerHTML = filter;
+  filterJob();
+};
+
+const filterJob = (jobs) => {
+  if (filterArray.length !== 0) {
+    let cards = "";
+    fetchData().then((jobs) => {
+      jobs.forEach((job) => {
+        if (validJobs(job)) {
+          cards += makeCards(job);
+          jobsContainer.innerHTML = cards;
+        }
+      });
+      jobsContainer.innerHTML = cards;
+    });
+  } else {
+    fetchData().then((jobs) => {
+      displayJobs(jobs);
+    });
+  }
+};
+
+
 const validJobs = (item) => {
   let isValid = true;
   filterArray.forEach((elem) => {
@@ -201,17 +162,35 @@ const validJobs = (item) => {
   });
   return isValid;
 };
-
 const start = async () => {
   const data = await fetchData();
 
   const resultArray = refactoredData(data, "new" && "featured", true);
   displayJobs(resultArray);
-  // Display the result array
-  console.log(resultArray);
-  // refactorData(data);
+};
+
+const removeFilter = (e) => {
+  let element = e.target;
+  if (element.classList.contains("remove")) {
+    const elementToRemove = element.parentElement;
+    let index = filterArray.indexOf(
+      elementToRemove.textContent.split(" ")[0].trim()
+    );
+    filterArray.splice(index, 1);
+    elementToRemove.remove();
+    filterJob();
+  }
+};
+
+const clearSearch = () => {
+  searchContainer.classList.add("hidden");
+  filterArray = [];
+  filterJob();
 };
 
 jobsContainer.addEventListener("click", displaySearch);
+searchContainer.addEventListener("click", removeFilter);
+clearSelection.addEventListener("click", clearSearch);
 
 start();
+

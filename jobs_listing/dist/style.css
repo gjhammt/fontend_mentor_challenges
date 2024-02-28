@@ -73,6 +73,7 @@ a:active {
   width: 100%;
   height: 9.688rem;
   background-color: var(--desaturated-dark-cyan);
+  position: relative;
 }
 .header__img {
   width: 100%;
@@ -85,6 +86,55 @@ a:active {
     background: url("/assets/images/bg-header-desktop.svg") no-repeat;
     background-size: cover;
   }
+}
+.header__search {
+  width: 100%;
+}
+.header__search .header__filter {
+  width: 90%;
+  max-width: 1140px;
+  margin: 0 auto;
+  height: auto;
+  background-color: #fff;
+  padding: 20px;
+  margin-top: -2rem;
+  box-shadow: 0 5px 30px 10px hsla(180, 29%, 50%, 0.2);
+  border-radius: 0.25rem;
+  justify-content: space-between;
+}
+.header__search .header__filter.hidden {
+  opacity: 0;
+}
+.header__search .header__filter .header__tech span:nth-child(1) {
+  padding: 0.5rem;
+  background-color: var(--light-tablet);
+  color: var(--desaturated-dark-cyan);
+  border-top-left-radius: 5px;
+  border-bottom-left-radius: 5px;
+}
+.header__search .header__filter .header__tech span:nth-child(2) {
+  padding: 0.5rem 0.6rem;
+  background-color: var(--desaturated-dark-cyan);
+  color: #fff;
+  margin: 0 1rem 0 0;
+  border-top-right-radius: 5px;
+  border-bottom-right-radius: 5px;
+}
+.header__search .header__filter .header__tech span:nth-child(2):hover {
+  background: var(--very-dark-grayish-cyan);
+  color: #ffffff;
+  cursor: pointer;
+}
+.header__search .header__filter #clear {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  font-size: 1.125rem;
+  font-weight: 700;
+  color: var(--dark-grayish-cyan);
+}
+.header__search .header__filter #clear:hover {
+  color: var(--desaturated-dark-cyan);
 }
 
 .jobs {
@@ -175,6 +225,10 @@ a:active {
   font-size: 1.25rem;
   margin-top: 1.125rem;
 }
+.jobs__list .jobs__single .jobs__details .jobs__description .jobs__title:hover {
+  color: var(--desaturated-dark-cyan);
+  cursor: pointer;
+}
 .jobs__list .jobs__single .jobs__details .jobs__description ul {
   padding: 0;
   color: var(--dark-grayish-cyan);
@@ -217,4 +271,9 @@ a:active {
   color: var(--desaturated-dark-cyan);
   margin: 1rem 1rem 0 0;
   border-radius: 5px;
+}
+.jobs__list .jobs__single .jobs__tech span:hover {
+  background: var(--desaturated-dark-cyan);
+  color: #ffffff;
+  cursor: pointer;
 }/*# sourceMappingURL=style.css.map */
